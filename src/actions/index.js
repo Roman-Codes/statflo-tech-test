@@ -6,3 +6,10 @@ export const updateCard = (name, value) => {
         payload: value
     };
 }
+
+export const selectedField = (name) => {
+    return{
+        type: 'SELECTED_FIELD',
+        payload: name
+    }
+}

@@ -8,9 +8,10 @@ const Card = (props) =>{
             <br/>
             This is card name:{props.cardReducer.name}
             <br/>
-            This is card month:{props.cardReducer.month}
+            EXP:{props.cardReducer.month}/{props.cardReducer.year}
             <br/>
-            This is card year:{props.cardReducer.year}
+            {props.selectedFieldReducer?console.log('yay'):console.log('nay')}
+            This is CVV: {props.cardReducer.cvv}
             <br/>
 
         </div>
@@ -18,7 +19,10 @@ const Card = (props) =>{
 }
 
 const mapSstateToProps = (state) =>{
-    return ({cardReducer:state.cardReducer})
+    return ({
+        cardReducer:state.cardReducer,
+        selectedFieldReducer:state.selectedFieldReducer
+    })
 }
 
 export default connect(mapSstateToProps)(Card);
