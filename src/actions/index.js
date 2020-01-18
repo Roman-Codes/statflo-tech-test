@@ -7,9 +7,9 @@ export const updateCard = (name, value) => {
     };
 }
 
-export const selectedField = (name) => {
+export const cvvSelected = (name) => {
     return{
-        type: 'SELECTED_FIELD',
+        type: 'SELECTED_CVV',
         payload: name
     }
 }

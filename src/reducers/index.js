@@ -55,8 +55,8 @@ const cardReducer = (state = initialCardState, action) => {
     }
 }
 
-const selectedFieldReducer = (state = false, action) => {
-    if (action.type === 'SELECTED_FIELD'){
+const cvvSelected = (state = false, action) => {
+    if (action.type === 'SELECTED_CVV'){
         if (action.payload === 'cvv'){
             return (state = true)
         }
@@ -68,5 +68,5 @@ const selectedFieldReducer = (state = false, action) => {
 
 export default combineReducers({
     cardReducer: cardReducer,
-    selectedFieldReducer: selectedFieldReducer
+    cvvSelected: cvvSelected
 })

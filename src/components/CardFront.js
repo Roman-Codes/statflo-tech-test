@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Card = (props) =>{
+const CardFront = (props) =>{
     return(
-        <div className="card">
+        <div className="card-front">
+            <h2>This is the front of the card</h2>
             This is card number:{props.cardReducer.number}
             <br/>
             This is card name:{props.cardReducer.name}
             <br/>
             EXP:{props.cardReducer.month}/{props.cardReducer.year}
             <br/>
-            {/* {props.selectedFieldReducer?console.log('yay'):console.log('nay')} */}
-            This is CVV: {props.cardReducer.cvv}
+            {/* {props.selectedFieldReducer?console.log('yay'):console.log('nay')}
+            This is CVV: {props.cardReducer.cvv} */}
             <br/>
 
         </div>
@@ -21,8 +22,7 @@ const Card = (props) =>{
 const mapSstateToProps = (state) =>{
     return ({
         cardReducer:state.cardReducer,
-        selectedFieldReducer:state.selectedFieldReducer
     })
 }
 
-export default connect(mapSstateToProps)(Card);
+export default connect(mapSstateToProps)(CardFront);

@@ -1,17 +1,25 @@
 import React from 'react';
 import '../styles/App.css';
+import { connect } from 'react-redux';
+
 import Form from './Form';
-import Card from './Card';
+import CardFront from './CardFront';
+import CardBack from './CardBack';
 
-
-const App = () =>{
+const App = (props) =>{
   return (
     <div className="App">
-      <Card />
+      {props.cvvSelected ? <CardBack /> : <CardFront />}
       <hr/>
       <Form />
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) =>{
+  return({
+    cvvSelected:state.cvvSelected
+  })
+}
+
+export default connect(mapStateToProps)(App);

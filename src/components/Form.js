@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { updateCard, selectedField } from '../actions';
+import { updateCard, cvvSelected } from '../actions';
 
 const Form = (props) => {
     const selectMonths = [];
@@ -131,7 +131,7 @@ const Form = (props) => {
     }
 
     function handleFocus(event){
-        props.selectedField(event.target.id);
+        props.cvvSelected(event.target.id);
         // console.log(event.target);
     }
 
@@ -231,4 +231,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateCard, selectedField })(Form);
+export default connect(mapStateToProps, { updateCard, cvvSelected })(Form);
