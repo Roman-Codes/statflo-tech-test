@@ -10,7 +10,7 @@ const Card = (props) =>{
             <br/>
             EXP:{props.cardReducer.month}/{props.cardReducer.year}
             <br/>
-            {props.selectedFieldReducer?console.log('yay'):console.log('nay')}
+            {/* {props.selectedFieldReducer?console.log('yay'):console.log('nay')} */}
             This is CVV: {props.cardReducer.cvv}
             <br/>
 

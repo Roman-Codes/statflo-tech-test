@@ -77,10 +77,34 @@ const Form = (props) => {
         return value.slice(-2);
     }
 
+    // Card type picker
+    function determineCard(number) {
+        const cardCodes = {
+            amex:[34, 37],
+            jcb: [352, 353, 354, 355],
+            unionpay: [62, 81],
+            diners: [300, 301, 302, 303, 304, 305, 36, 38, 39],
+            discover: [60, 622, 624, 625, 626, 628, 64, 65],
+            mc: [51, 52, 53, 54, 55],
+            troy: [979],
+            visa: 'else'
+        }
+        // console.log(number);
+
+        for (let key in cardCodes){
+            // console.log(cardCodes[key]);
+            if (cardCodes[key].includes(parseInt(number))){
+                // console.log(key);
+                return key;
+            }
+        }
+        return 'visa';
+    }
+
     // Event Handlers
     function handleCreditChange(event){
         const stripped = charStrip(event.target.value);
-
+        props.updateCard('type', determineCard(stripped));
         setCard(ccFormat(stripped));
         props.updateCard('number',ccFormat(stripped));
     }
@@ -108,7 +132,7 @@ const Form = (props) => {
 
     function handleFocus(event){
         props.selectedField(event.target.id);
-        console.log(event.target);
+        // console.log(event.target);
     }
 
     function handleSubmit(event){

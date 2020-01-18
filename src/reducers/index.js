@@ -26,7 +26,7 @@ const cardReducer = (state = initialCardState, action) => {
         }
         case 'UPDATE_NAME':{
             return Object.assign({}, state, {
-                name: action.payload
+                name: action.payload.toUpperCase()
             })
         }
         case 'UPDATE_MONTH':{
