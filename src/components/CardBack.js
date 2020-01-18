@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const CardBack = (props) => {
 
     return(
-        <div className="card-back">
+        <div className="card back">
             <h2>
                 This is the back of the card.
             </h2>

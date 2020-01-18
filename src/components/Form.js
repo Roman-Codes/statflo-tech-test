@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/Form.css';
 import { connect } from 'react-redux';
 import { updateCard, cvvSelected } from '../actions';
 
@@ -83,11 +84,11 @@ const Form = (props) => {
             amex:[34, 37],
             jcb: [352, 353, 354, 355],
             unionpay: [62, 81],
-            diners: [300, 301, 302, 303, 304, 305, 36, 38, 39],
+            dinersclub: [300, 301, 302, 303, 304, 305, 36, 38, 39],
             discover: [60, 622, 624, 625, 626, 628, 64, 65],
-            mc: [51, 52, 53, 54, 55],
+            mastercard: [51, 52, 53, 54, 55],
             troy: [979],
-            visa: 'else'
+            visa: [4]
         }
         // console.log(number);
 
@@ -98,7 +99,7 @@ const Form = (props) => {
                 return key;
             }
         }
-        return 'visa';
+        return '';
     }
 
     // Event Handlers
@@ -145,82 +146,84 @@ const Form = (props) => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="number">
-                Card Number:
-                <input
-                    value={cCard}
-                    onChange={handleCreditChange}
-                    onFocus={handleFocus}
-                    type="text"
-                    id="number"
-                    name="number"
-                />
-            </label>
-
-            <br/>
-            <label htmlFor="name">
-                Card Name:
-                <input
-                    value={cardName}
-                    onChange={handleNameChange}
-                    onFocus={handleFocus}
-                    type="text"
-                    name="name"
-                    id="name"
-                />
-            </label>
-            <br/>
-
-            <label htmlFor="expiry-date">
-                Expiration Date:
-                <select
-                    defaultValue="Month"
-                    onChange={handleMonthChange}
-                    onFocus={handleFocus}
-                    name="month"
-                    id="month"
-                >
-                    <option disabled>Month</option>
-                    {selectMonths.map(month => {
-                        return(
-                            <option value={month}>{month}</option>
-                        )
-                    })}
-                </select>
-
-                <select
-                    defaultValue="Year"
-                    onChange={handleYearChange}
-                    onFocus={handleFocus}
-                    name="year"
-                    id="year"
-                >
-                    <option  disabled>Year</option>
-                    {selectYears.map(year => {
-                        return(
-                            <option value={year}>{year}</option>
-                        )
-                    })}
-                </select>
-            </label>
-
-            <label htmlFor="CVV">
-                    CVV
+        <div className="form">
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="number">
+                    Card Number:
                     <input
-                        value={cvv}
-                        onChange={handleCvvChange}
+                        value={cCard}
+                        onChange={handleCreditChange}
                         onFocus={handleFocus}
-                        maxLength="4"
                         type="text"
-                        name="CVV"
-                        id="cvv"
+                        id="number"
+                        name="number"
                     />
-            </label>
-            <br/>
+                </label>
 
-            <input type="submit" value="Submit" />
-        </form>
+                <br/>
+                <label htmlFor="name">
+                    Card Name:
+                    <input
+                        value={cardName}
+                        onChange={handleNameChange}
+                        onFocus={handleFocus}
+                        type="text"
+                        name="name"
+                        id="name"
+                    />
+                </label>
+                <br/>
+
+                <label htmlFor="expiry-date">
+                    Expiration Date:
+                    <select
+                        defaultValue="Month"
+                        onChange={handleMonthChange}
+                        onFocus={handleFocus}
+                        name="month"
+                        id="month"
+                    >
+                        <option disabled>Month</option>
+                        {selectMonths.map(month => {
+                            return(
+                                <option value={month}>{month}</option>
+                            )
+                        })}
+                    </select>
+
+                    <select
+                        defaultValue="Year"
+                        onChange={handleYearChange}
+                        onFocus={handleFocus}
+                        name="year"
+                        id="year"
+                    >
+                        <option  disabled>Year</option>
+                        {selectYears.map(year => {
+                            return(
+                                <option value={year}>{year}</option>
+                            )
+                        })}
+                    </select>
+                </label>
+
+                <label htmlFor="CVV">
+                        CVV
+                        <input
+                            value={cvv}
+                            onChange={handleCvvChange}
+                            onFocus={handleFocus}
+                            maxLength="4"
+                            type="text"
+                            name="CVV"
+                            id="cvv"
+                        />
+                </label>
+                <br/>
+
+                <input type="submit" value="Submit" />
+            </form>
+        </div>
     );
 }
 

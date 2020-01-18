@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const CardFront = (props) =>{
+const CardFront = ({ cardReducer }) =>{
     return(
-        <div className="card-front">
+        <div className="cardFront">
             <h2>This is the front of the card</h2>
-            This is card number:{props.cardReducer.number}
+            This is card number:{cardReducer.number}
             <br/>
-            This is card name:{props.cardReducer.name}
+            This is card name:{cardReducer.name}
             <br/>
-            EXP:{props.cardReducer.month}/{props.cardReducer.year}
+            EXP:{cardReducer.month}/{cardReducer.year}
             <br/>
-            {/* {props.selectedFieldReducer?console.log('yay'):console.log('nay')}
-            This is CVV: {props.cardReducer.cvv} */}
+            {cardReducer.type === ''? null : <img
+            src={`/assets/${cardReducer.type}.png`} alt={`A logo for ${cardReducer.type} card`}/>}
             <br/>
 
         </div>
