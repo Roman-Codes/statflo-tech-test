@@ -1,0 +1,116 @@
+@media (min-width: 320px){
+    .Form{
+        color:#5A6371;
+        background: #FDFFFA;
+        box-shadow: 0px 26px 36px 10px rgba(207,207,207,1);
+        border-radius: 10px;
+        padding-top: 150px;
+        margin-top: 50px;
+
+        form{
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        input, label{
+            display: block;
+        }
+
+        input, select{
+            padding: 10px;
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+            background-color: #FDFFFA;
+            margin-bottom: 20px;
+        }
+
+        input:focus, input:hover, select:focus, select:hover{
+            background-color: #fdfdfa;
+            box-shadow: 1px 13px 23px -8px rgba(224,224,224,1);
+            border-color: #7c99f7;
+        }
+
+        input, select{
+            font-size: 1.4rem;
+            color:#080a2e;
+        }
+
+        label, legend{
+            font-size: 1.2rem;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .FormBottom{
+            display: flex;
+            flex-direction: column;
+
+            fieldset{
+                border:0 none;
+                padding: 0;
+
+                select{
+                    width:49%;
+                }
+
+                .Month{
+                    margin-right: 1%;
+                }
+
+                .Year{
+                    margin-left: 1%;
+                }
+
+            }
+
+            .FormBottomRight{
+                display:flex;
+                flex-direction: column;
+            }
+        }
+
+        .Submit{
+            margin-bottom:20px;
+            background-color: #3061ff;
+            color:#fff;
+            border:2px solid #fff;
+            font-size: 1.6rem;
+        }
+
+        .Submit:focus, .Submit:hover{
+            background-color: #fff;
+            color: #3061ff;
+            border: 2px solid #3061ff;
+        }
+
+        .Submit:active{
+            background-color: #3061ff;
+            color:#fff;
+            border:2px solid #fff;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media (min-width: 449px){
+    .Form{
+        max-width: 350px;
+        margin:75px auto;
+        padding-top: 120px;
+
+        .FormBottom{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            fieldset{
+                flex-basis: 75%;
+            }
+
+            .FormBottomRight{
+                max-width: 30%;
+            }
+        }
+    }
+}

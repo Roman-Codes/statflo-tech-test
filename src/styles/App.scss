@@ -1,0 +1,51 @@
+.App {
+  @import url('https://fonts.googleapis.com/css?family=Roboto|Ubuntu+Mono&display=swap');
+  font-family: 'Roboto';
+  text-align: center;
+  background-color:	#D2ECFD;
+  h1,h2,h3,h4,h5{
+    margin:0;
+  }
+  padding:50px 10px 0;
+  min-height: calc(100vh - 50px);
+
+  p{
+    margin:0;
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* added line */
+}
+
+@media (orientation: landscape) {
+  .App{
+    min-height: 600px;
+  }
+}
+

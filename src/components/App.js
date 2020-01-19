@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/App.css';
+import '../styles/App.scss';
 import { connect } from 'react-redux';
 
 import Form from './Form';
@@ -10,7 +10,6 @@ const App = (props) =>{
   return (
     <div className="App">
       {props.cvvSelected ? <CardBack /> : <CardFront />}
-      <hr/>
       <Form />
     </div>
   );

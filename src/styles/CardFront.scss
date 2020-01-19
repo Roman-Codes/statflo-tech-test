@@ -1,0 +1,53 @@
+@import './mixins.scss';
+
+@media(min-width: 320px){
+    .CardFront{
+        @include card;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .CardFrontTop{
+            display: flex;
+            justify-content: space-between;
+
+            .Chip{
+                img{
+                    width: auto;
+                    height: 40px;
+                }
+            }
+
+            .Logo{
+                img{
+                    width: auto;
+                    height: 30px;
+                }
+            }
+        }
+
+        .CardFrontMiddle{
+            font-family: 'Ubuntu Mono';
+            font-size: 2rem;
+            word-spacing: 1em;
+        }
+
+        .CardFrontBottom{
+            display: flex;
+            flex-direction: row;
+
+            .CardName{
+                text-align: left;
+                flex-basis: 80%;;
+            }
+
+            .InputData{
+                font-family: 'Ubuntu Mono';
+                font-size: 1.4rem;
+            }
+
+        }
+    }
+
+}

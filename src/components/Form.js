@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Form.css';
+import '../styles/Form.scss';
 import { connect } from 'react-redux';
 import { updateCard, cvvSelected } from '../actions';
 
@@ -9,6 +9,7 @@ const Form = (props) => {
     const [cCard, setCard] = useState('');
     const [cardName, setCardName] = useState('');
     const [cvv, setCvv] = useState('');
+    const [cardType, setCardType] = useState('');
 
     // Select options populators
     for (let i = 1; i <= 12; i++){
@@ -90,16 +91,14 @@ const Form = (props) => {
             troy: [979],
             visa: [4]
         }
-        // console.log(number);
 
         for (let key in cardCodes){
-            // console.log(cardCodes[key]);
             if (cardCodes[key].includes(parseInt(number))){
-                // console.log(key);
+                setCardType(key);
                 return key;
             }
         }
-        return '';
+        return cardType;
     }
 
     // Event Handlers
@@ -133,7 +132,6 @@ const Form = (props) => {
 
     function handleFocus(event){
         props.cvvSelected(event.target.id);
-        // console.log(event.target);
     }
 
     function handleSubmit(event){
@@ -146,69 +144,78 @@ const Form = (props) => {
     }
 
     return(
-        <div className="form">
+        <div className="Form">
             <form onSubmit={handleSubmit}>
-                <label htmlFor="number">
-                    Card Number:
-                    <input
-                        value={cCard}
-                        onChange={handleCreditChange}
-                        onFocus={handleFocus}
-                        type="text"
-                        id="number"
-                        name="number"
-                    />
+                <label
+                    htmlFor="number">
+                        Card Number
                 </label>
+                <input
+                    value={cCard}
+                    onChange={handleCreditChange}
+                    onFocus={handleFocus}
+                    maxLength="19"
+                    type="text"
+                    id="number"
+                    name="number"
+                />
 
-                <br/>
-                <label htmlFor="name">
-                    Card Name:
-                    <input
-                        value={cardName}
-                        onChange={handleNameChange}
-                        onFocus={handleFocus}
-                        type="text"
-                        name="name"
-                        id="name"
-                    />
+                <label
+                    htmlFor="name">
+                    Card Name
                 </label>
-                <br/>
+                <input
+                    value={cardName}
+                    onChange={handleNameChange}
+                    onFocus={handleFocus}
+                    maxLength="19"
+                    type="text"
+                    name="name"
+                    id="name"
+                />
 
-                <label htmlFor="expiry-date">
-                    Expiration Date:
-                    <select
-                        defaultValue="Month"
-                        onChange={handleMonthChange}
-                        onFocus={handleFocus}
-                        name="month"
-                        id="month"
-                    >
-                        <option disabled>Month</option>
-                        {selectMonths.map(month => {
-                            return(
-                                <option value={month}>{month}</option>
-                            )
-                        })}
-                    </select>
+                <div className="FormBottom">
+                    <fieldset>
+                        <legend>Expiration Date</legend>
+                        <label className="visually-hidden" htmlFor="month">Month</label>
+                        <select
+                            className="Month"
+                            defaultValue="Month"
+                            onChange={handleMonthChange}
+                            onFocus={handleFocus}
+                            name="month"
+                            id="month"
+                        >
+                            <option disabled>Month</option>
+                            {selectMonths.map(month => {
+                                return(
+                                    <option value={month}>{month}</option>
+                                )
+                            })}
+                        </select>
 
-                    <select
-                        defaultValue="Year"
-                        onChange={handleYearChange}
-                        onFocus={handleFocus}
-                        name="year"
-                        id="year"
-                    >
-                        <option  disabled>Year</option>
-                        {selectYears.map(year => {
-                            return(
-                                <option value={year}>{year}</option>
-                            )
-                        })}
-                    </select>
-                </label>
+                        <label className="visually-hidden" htmlFor="year">Year</label>
+                        <select
+                            className="Year"
+                            defaultValue="Year"
+                            onChange={handleYearChange}
+                            onFocus={handleFocus}
+                            name="year"
+                            id="year"
+                        >
+                            <option  disabled>Year</option>
+                            {selectYears.map(year => {
+                                return(
+                                    <option value={year}>{year}</option>
+                                )
+                            })}
+                        </select>
+                    </fieldset>
 
-                <label htmlFor="CVV">
-                        CVV
+                    <div className="FormBottomRight">
+                        <label htmlFor="CVV">
+                            CVV
+                        </label>
                         <input
                             value={cvv}
                             onChange={handleCvvChange}
@@ -218,10 +225,10 @@ const Form = (props) => {
                             name="CVV"
                             id="cvv"
                         />
-                </label>
-                <br/>
+                    </div>
+                </div>
 
-                <input type="submit" value="Submit" />
+                <input className="Submit" type="submit" value="Submit" />
             </form>
         </div>
     );
