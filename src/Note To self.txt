@@ -1,0 +1,11 @@
+Known Bugs:
+1) empty card input validates as correct
+2) CVV field transfers ghost frame to expiry date (NBD but easy fix)
+
+Animation Pseudo
+1) receive new string throught props
+2) convert string to at array
+3) comparate old and new array
+4) map array to the page each character wrapped into a span
+5) animate enter/exit things
+
