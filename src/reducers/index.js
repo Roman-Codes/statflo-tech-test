@@ -55,14 +55,10 @@ const cardReducer = (state = initialCardState, action) => {
     }
 }
 
-const cvvSelected = (state = false, action) => {
+const cvvSelected = (state = '', action) => {
     if (action.type === 'SELECTED_CVV'){
-        if (action.payload === 'cvv'){
-            return (state = true)
-        }
-        return state = false;
+        return action.payload;
     }
-
     return state;
 }
 

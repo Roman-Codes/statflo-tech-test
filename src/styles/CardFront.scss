@@ -31,11 +31,16 @@
             font-family: 'Ubuntu Mono';
             font-size: 2rem;
             word-spacing: 1em;
+            padding: 10px 0;
         }
 
         .CardFrontBottom{
             display: flex;
             flex-direction: row;
+
+            .CardName, .CardExp{
+                padding: 5px;
+            }
 
             .CardName{
                 text-align: left;

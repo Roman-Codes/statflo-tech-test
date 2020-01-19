@@ -5,11 +5,12 @@ import { connect } from 'react-redux';
 import Form from './Form';
 import CardFront from './CardFront';
 import CardBack from './CardBack';
+import Ghost from './Ghost';
 
 const App = (props) =>{
   return (
     <div className="App">
-      {props.cvvSelected ? <CardBack /> : <CardFront />}
+      {props.cvvSelected === 'cvv' ? <CardBack /> : <CardFront />}
       <Form />
     </div>
   );

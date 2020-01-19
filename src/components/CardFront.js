@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import '../styles/CardFront.scss';
+import Ghost from './Ghost';
 
-const CardFront = ({ cardReducer }) =>{
+const CardFront = ({ cardReducer, cvvSelected }) =>{
+    const [number, setNumber] = useState(0);
+    const [name, setName] = useState(0);
+    const [date, setDate] = useState(0);
+    const numberRef = useRef(null);
+    const nameRef = useRef(null);
+    const dateRef = useRef(null);
+
+    useEffect(() => {
+        setNumber(numberRef.current);
+        setName(nameRef.current);
+        setDate(dateRef.current);
+    }, []);
+
     return(
         <div className="CardFront">
             <div className="CardFrontTop">
@@ -17,11 +31,11 @@ const CardFront = ({ cardReducer }) =>{
                     />}
                 </div>
             </div>
-            <div className="CardFrontMiddle">
+            <div className="CardFrontMiddle" ref={numberRef}>
                 {cardReducer.number}
             </div>
             <div className="CardFrontBottom">
-                <div className="CardName">
+                <div className="CardName" ref={nameRef}>
                     <p className="InputLabel">
                         Card Holder
                     </p>
@@ -29,7 +43,7 @@ const CardFront = ({ cardReducer }) =>{
                         {cardReducer.name}
                     </p>
                 </div>
-                <div className="CardExp">
+                <div className="CardExp" ref={dateRef}>
                     <p className="InputLabel">
                         Expires
                     </p>
@@ -38,6 +52,7 @@ const CardFront = ({ cardReducer }) =>{
                     </p>
                 </div>
             </div>
+            {cvvSelected.length?<Ghost number={ number } name={ name } date={ date } />:null}
         </div>
     )
 }
@@ -45,6 +60,7 @@ const CardFront = ({ cardReducer }) =>{
 const mapSstateToProps = (state) =>{
     return ({
         cardReducer:state.cardReducer,
+        cvvSelected:state.cvvSelected
     })
 }
 
