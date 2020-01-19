@@ -6,7 +6,7 @@
   h1,h2,h3,h4,h5{
     margin:0;
   }
-  padding:50px 10px 0;
+  padding:50px 0;
   min-height: calc(100vh - 50px);
 
   p{
@@ -41,6 +41,12 @@
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap; /* added line */
+}
+
+@media (min-width: 400px){
+  .App{
+    padding: 50px 10px 0;
+  }
 }
 
 @media (orientation: landscape) {

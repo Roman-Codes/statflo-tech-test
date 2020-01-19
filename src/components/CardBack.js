@@ -2,14 +2,32 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/CardBack.scss';
 
-const CardBack = (props) => {
+const CardBack = ({ cardReducer }) => {
 
     return(
         <div className="CardBack">
-            <h2>
-                This is the back of the card.
-            </h2>
-            <p>This is CVV {props.cardReducer.cvv}</p>
+            <div className="CardBackTop">
+
+            </div>
+
+            <div className="CardBackMiddle">
+                <div className="Label">
+                    CVV
+                </div>
+                <div className="Field">
+                    {cardReducer.cvv}
+                </div>
+            </div>
+
+            <div className="CardBackBottom">
+                <div className="Logo">{cardReducer.type === ''?
+                    null :
+                    <img
+                        src={`/assets/${cardReducer.type}.png`}
+                        alt={`A logo for ${cardReducer.type} card`}
+                    />}
+                </div>
+            </div>
         </div>
     )
 }

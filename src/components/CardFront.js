@@ -38,8 +38,6 @@ const CardFront = ({ cardReducer }) =>{
                     </p>
                 </div>
             </div>
-
-
         </div>
     )
 }
