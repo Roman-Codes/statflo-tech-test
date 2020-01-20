@@ -16,8 +16,8 @@ const CardLogo = ({ cardReducer }) => {
                 in={animate}
                 timeout={300}
                 classNames="logo"
-                // unmountOnExit
-                onExited={()=> setAnimate(!animate)}
+                unmountOnExit
+                onExit={()=> setAnimate(!animate)}
             >
                 <img
                     src={`/assets/${cardReducer.type}.png`}

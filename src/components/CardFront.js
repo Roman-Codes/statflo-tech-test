@@ -5,6 +5,7 @@ import Ghost from './Ghost';
 import ExpDate from './ExpDate';
 import '../styles/CardFront.scss';
 import CardLogo from './CardLogo';
+import CardName from './CardName';
 
 const CardFront = ({ cardReducer, cvvSelected }) =>{
     const [number, setNumber] = useState(0);
@@ -24,7 +25,7 @@ const CardFront = ({ cardReducer, cvvSelected }) =>{
         <div className="CardFront">
             <div className="CardFrontTop">
                 <div className="Chip">
-                    <img src="/assets/chip.png" alt="An image of a credit card chip"/>
+                    <img src="/assets/chip.png" alt="An colorful credit card chip"/>
                 </div>
                 <div className="Logo">{cardReducer.type === ''?
                     null :
@@ -37,11 +38,9 @@ const CardFront = ({ cardReducer, cvvSelected }) =>{
             <div className="CardFrontBottom">
                 <div className="CardName" ref={nameRef}>
                     <p className="InputLabel">
-                        Card Holder
+                        &nbsp;Card Holder
                     </p>
-                    <p className="InputData">
-                        {cardReducer.name}
-                    </p>
+                    <CardName />
                 </div>
                 <div className="CardExp" ref={dateRef}>
                     <p className="InputLabel">

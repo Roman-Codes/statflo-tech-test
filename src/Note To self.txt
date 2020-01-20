@@ -13,3 +13,12 @@ Animation Pseudo🤷‍♂️🤷‍♂️🤷‍♂️
 Refactor:
 1) Ghost props
 2) Expiry date animations (try to outsource the hook)
+
+Style fixes:
+1) color of logo and lagels should be more grey?
+
+Clean-up:
+1) Check for consol logs
+2) mb refactor state in form
+3) refactor functions in form
+4) destructure all variables

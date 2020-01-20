@@ -3,17 +3,17 @@
     opacity: 0;
     transform: scale(0.9);
     transform: translateY(-5px);
-    }
+}
 
 .date-enter-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 200ms, transform 200ms;
-    }
+}
 
 .date-exit {
     opacity: 1;
-    }
+}
 
 .date-exit-active {
     opacity: 0;
@@ -26,20 +26,43 @@
 .logo-enter {
     opacity: 0;
     transform: translateY(20px);
-    }
+}
 
 .logo-enter-active {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 200ms, transform 100ms;
-    }
+}
 
 .logo-exit {
     opacity: 1;
-    }
+}
 
 .logo-exit-active {
     opacity: 0;
     transform: translateY(-3px);
     transition: opacity 100ms, transform 100ms;
+}
+
+/* Letter Animations */
+
+.letter-enter {
+    opacity: 1;
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+}
+
+.letter-enter-active {
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: opacity 500ms, transform 500ms ease-in;
+}
+
+.letter-exit {
+    opacity: 1;
+}
+
+.letter-exit-active {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
 }
