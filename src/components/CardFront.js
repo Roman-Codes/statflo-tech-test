@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
-import '../styles/CardFront.scss';
+
 import Ghost from './Ghost';
+import ExpDate from './ExpDate';
+import '../styles/CardFront.scss';
+import CardLogo from './CardLogo';
 
 const CardFront = ({ cardReducer, cvvSelected }) =>{
     const [number, setNumber] = useState(0);
@@ -25,10 +28,7 @@ const CardFront = ({ cardReducer, cvvSelected }) =>{
                 </div>
                 <div className="Logo">{cardReducer.type === ''?
                     null :
-                    <img
-                        src={`/assets/${cardReducer.type}.png`}
-                        alt={`A logo for ${cardReducer.type} card`}
-                    />}
+                    <CardLogo />}
                 </div>
             </div>
             <div className="CardFrontMiddle" ref={numberRef}>
@@ -47,9 +47,7 @@ const CardFront = ({ cardReducer, cvvSelected }) =>{
                     <p className="InputLabel">
                         Expires
                     </p>
-                    <p className="InputData">
-                        {cardReducer.month}/{cardReducer.year}
-                    </p>
+                    <ExpDate />
                 </div>
             </div>
             {cvvSelected.length?<Ghost number={ number } name={ name } date={ date } />:null}

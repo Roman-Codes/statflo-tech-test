@@ -1,11 +1,15 @@
-Known Bugs:
+Known Bugs:🛠
+
 1) empty card input validates as correct
 2) CVV field transfers ghost frame to expiry date (NBD but easy fix)
 
-Animation Pseudo
+Animation Pseudo🤷‍♂️🤷‍♂️🤷‍♂️
 1) receive new string throught props
 2) convert string to at array
 3) comparate old and new array
 4) map array to the page each character wrapped into a span
 5) animate enter/exit things
 
+Refactor:
+1) Ghost props
+2) Expiry date animations (try to outsource the hook)
