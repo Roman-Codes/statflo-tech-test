@@ -27,7 +27,7 @@ const CardName = ({ cardReducer }) => {
                     timeout={500}
                     classNames="letter"
                     >
-                        <div id={index+letter}>{letter}</div>
+                        <div id={index+letter}>{letter === ' '? <div>&nbsp;</div> : letter}</div>
                     </CSSTransition>
                 ))}<span id='placeholder'>&nbsp;</span>
             </TransitionGroup>
