@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 const initialCardState = {
     name: '',
-    number: '#### #### #### ####',
+    number: '',
     month: 'MM',
     year: 'YY',
     cvv: '',
@@ -10,18 +10,19 @@ const initialCardState = {
 }
 
 // Adds and removes #s to the card number
-const formatNumber = (number) => {
-    const poundString = initialCardState.number;
-    const meargedString = number + poundString.slice(number.length);
-    return meargedString;
-}
+// const formatNumber = (number) => {
+//     const poundString = initialCardState.number;
+//     const meargedString = number + poundString.slice(number.length);
+//     return meargedString;
+// }
 
 const cardReducer = (state = initialCardState, action) => {
     switch (action.type){
         case 'UPDATE_NUMBER':{
 
             return Object.assign({}, state, {
-                number: formatNumber(action.payload)
+                // number: formatNumber(action.payload)
+                number: action.payload
             })
         }
         case 'UPDATE_NAME':{

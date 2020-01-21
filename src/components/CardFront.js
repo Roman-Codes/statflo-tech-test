@@ -6,6 +6,7 @@ import ExpDate from './ExpDate';
 import '../styles/CardFront.scss';
 import CardLogo from './CardLogo';
 import CardName from './CardName';
+import CardNumber from './CardNumber';
 
 const CardFront = ({ cardReducer, cvvSelected }) =>{
     const [number, setNumber] = useState(0);
@@ -33,12 +34,12 @@ const CardFront = ({ cardReducer, cvvSelected }) =>{
                 </div>
             </div>
             <div className="CardFrontMiddle" ref={numberRef}>
-                {cardReducer.number}
+                <CardNumber />
             </div>
             <div className="CardFrontBottom">
                 <div className="CardName" ref={nameRef}>
                     <p className="InputLabel">
-                        &nbsp;Card Holder
+                        Card Holder
                     </p>
                     <CardName />
                 </div>

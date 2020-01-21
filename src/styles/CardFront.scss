@@ -31,7 +31,8 @@
             font-family: 'Ubuntu Mono';
             font-size: 2rem;
             word-spacing: 1em;
-            padding: 10px 0;
+            padding: 10px 10px;
+            text-align: left;
         }
 
         .CardFrontBottom{
@@ -51,7 +52,7 @@
                 letter-spacing: 0.1rem;
             }
 
-            .InputData, .CardName{
+            .InputData{
                 font-family: 'Ubuntu Mono';
                 font-size: 1.4rem;
             }
