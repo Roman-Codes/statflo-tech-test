@@ -6,7 +6,6 @@ import '../styles/animations.css';
 const CardLogo = ({ cardReducer }) => {
     const [animate, setAnimate] = useState(false);
     useEffect(()=>{
-        console.log('effections')
         setAnimate(!animate)
     },[cardReducer.type])
 

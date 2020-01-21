@@ -10,7 +10,7 @@ const FadeDiv = styled.div`
     font-family: 'Ubuntu Mono';
     font-size: 20px;
     opacity: ${({ state }) => (state === "entered" ? 1 : 0)};
-    transform: translateY(${({ state }) => (state === "entered" ? '0px' :'-5px')});
+    transform: translateY(${({ state }) => (state === "entered" ? '0px' :'5px')});
     display: ${({ state }) => (state === "exited" ? "none" : "block")};
 `;
 
@@ -24,7 +24,7 @@ const SwitchableText = ({ arr, num }) => (
     <SwitchTransition mode="out-in">
         <FadeTransition
             key={arr[num] ? 'foo' : 'bar'}
-            timeout={200}
+            timeout={100}
             unmountOnExit
             mountOnEnter
         >
@@ -51,7 +51,7 @@ const CardNumber = ({ cardReducer }) => {
     const renderNumbers = () => {
         const arr = [];
         for (let i = 0; i <= 15; i++){
-                arr.push(<SwitchableText arr={numbers} num={i}/>)
+                arr.push(<SwitchableText  arr={numbers} num={i}/>)
             }
         insertSpace(arr, [4,9,14]);
         return arr.map(elm => elm);

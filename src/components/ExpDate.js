@@ -5,6 +5,7 @@ import '../styles/animations.css';
 import '../styles/ExpDate.scss';
 
 const ExpDate = ({ cardReducer }) => {
+
     const [animateMonth, setAnimateMonth] = useState(false);
     const [animateYear, setAnimateYear] = useState(false);
     useEffect(()=>{
@@ -21,7 +22,7 @@ const ExpDate = ({ cardReducer }) => {
                 timeout={200}
                 classNames="date"
                 unmountOnExit
-                onExited={()=> setAnimateMonth(!animateMonth)}
+                onExit={()=> setAnimateMonth(!animateMonth)}
             >
                 <div>{cardReducer.month}</div>
             </CSSTransition>

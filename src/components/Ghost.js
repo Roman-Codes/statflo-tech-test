@@ -5,7 +5,7 @@ import '../styles/Ghost.scss';
 const Ghost = ({cvvSelected, number, name, date}) => {
     const ghostedElt = {number: 'number', name: 'name'}[cvvSelected] || 'date';
 
-    // Creates style object for ghost
+    // Creates style object for ghost frame
     const createGhostStyle = (val) => {
         const propsObject = {
             number: number,

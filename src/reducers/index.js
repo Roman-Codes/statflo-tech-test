@@ -9,19 +9,11 @@ const initialCardState = {
     type: ''
 }
 
-// Adds and removes #s to the card number
-// const formatNumber = (number) => {
-//     const poundString = initialCardState.number;
-//     const meargedString = number + poundString.slice(number.length);
-//     return meargedString;
-// }
-
 const cardReducer = (state = initialCardState, action) => {
     switch (action.type){
         case 'UPDATE_NUMBER':{
 
             return Object.assign({}, state, {
-                // number: formatNumber(action.payload)
                 number: action.payload
             })
         }

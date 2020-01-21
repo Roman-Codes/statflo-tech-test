@@ -3,7 +3,7 @@ import '../styles/Form.scss';
 import { connect } from 'react-redux';
 import { updateCard, cvvSelected } from '../actions';
 
-const Form = (props) => {
+const Form = ({ updateCard, cvvSelected }) => {
     const selectMonths = [];
     const selectYears = [];
     const [cCard, setCard] = useState('');
@@ -25,19 +25,19 @@ const Form = (props) => {
     }
 
     //Letter Char remover
-    function  charStrip(value){
+    const charStrip = (value) =>{
         const v = value.replace(/\D+/g, '');
         return v;
     }
 
     //Other char remover
-    function letterOnly(value){
+    const letterOnly = (value) =>{
         const v = value.replace(/[^A-Za-z\s]/ig, '');
         return v;
     }
 
     // CC formatter
-    function ccFormat(value) {
+    const ccFormat = (value) =>{
         const v = value.replace(/\s+/g, '');
         const matches = v.match(/\d{4,16}/g);
         const match = (matches && matches[0]) || '';
@@ -53,7 +53,7 @@ const Form = (props) => {
     }
 
     // CC validator
-    function validCreditCard(value) {
+    const validCreditCard = (value) => {
     // Accept only digits, dashes or spaces
         if (/[^0-9-\s]+/.test(value)) return false;
 
@@ -75,12 +75,12 @@ const Form = (props) => {
     }
 
     // Year formatter
-    function yearFormat(value){
+    const yearFormat = (value) =>{
         return value.slice(-2);
     }
 
     // Card type picker
-    function determineCard(number) {
+    const determineCard = (number) => {
         const cardCodes = {
             amex:[34, 37],
             jcb: [352, 353, 354, 355],
@@ -101,46 +101,46 @@ const Form = (props) => {
         return cardType;
     }
 
-    // Event Handlers
-    function handleCreditChange(event){
-        const stripped = charStrip(event.target.value);
-        props.updateCard('type', determineCard(stripped));
+    // e Handlers
+    const handleCreditChange = (e) =>{
+        const stripped = charStrip(e.target.value);
+        updateCard('type', determineCard(stripped));
         setCard(ccFormat(stripped));
-        props.updateCard('number',ccFormat(stripped));
+        updateCard('number',ccFormat(stripped));
     }
 
-    function handleNameChange(event){
-        const value = letterOnly(event.target.value);
+    const handleNameChange = (e) =>{
+        const value = letterOnly(e.target.value);
         setCardName(value);
-        props.updateCard('name', value);
+        updateCard('name', value);
     }
 
-    function handleMonthChange(event){
+    const handleMonthChange = (e) =>{
 
-        props.updateCard('month', event.target.value);
+        updateCard('month', e.target.value);
     }
 
-    function handleYearChange(event){
-        props.updateCard('year', yearFormat(event.target.value));
+    const handleYearChange = (e) =>{
+        updateCard('year', yearFormat(e.target.value));
     }
 
-    function handleCvvChange(event){
-        const value = charStrip(event.target.value);
+    const handleCvvChange = (e) =>{
+        const value = charStrip(e.target.value);
         setCvv(value);
-        props.updateCard('cvv', value);
+        updateCard('cvv', value);
     }
 
-    function handleFocus(event){
-        props.cvvSelected(event.target.id);
+    const handleFocus = (e) =>{
+        cvvSelected(e.target.id);
     }
 
-    function handleSubmit(event){
-        event.preventDefault();
-        if (validCreditCard(cCard)){
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        if (cCard.length && validCreditCard(cCard)){
             alert('All good');
             return
         }
-        alert('Wrong number');
+        alert('Check the number');
     }
 
     return(
@@ -189,7 +189,7 @@ const Form = (props) => {
                             <option disabled>Month</option>
                             {selectMonths.map(month => {
                                 return(
-                                    <option value={month}>{month}</option>
+                                    <option key={month} value={month}>{month}</option>
                                 )
                             })}
                         </select>
@@ -206,7 +206,7 @@ const Form = (props) => {
                             <option  disabled>Year</option>
                             {selectYears.map(year => {
                                 return(
-                                    <option value={year}>{year}</option>
+                                    <option key={year} value={year}>{year}</option>
                                 )
                             })}
                         </select>
@@ -235,7 +235,6 @@ const Form = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return{
         cardReducer: state,
     }
